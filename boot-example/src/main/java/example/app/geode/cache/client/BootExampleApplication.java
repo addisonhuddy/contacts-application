@@ -23,14 +23,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.gemfire.client.PoolFactoryBean;
 import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
 import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions;
+import org.springframework.data.gemfire.support.ConnectionEndpointList;
+import org.springframework.data.gemfire.support.ConnectionEndpoint;
 import org.springframework.geode.config.annotation.UseMemberName;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import example.app.geode.cache.client.model.Book;
-import example.app.geode.cache.client.model.ISBN;
 import example.app.geode.cache.client.repo.BookRepository;
 
 /**
@@ -50,15 +51,13 @@ import example.app.geode.cache.client.repo.BookRepository;
  * @see org.springframework.geode.config.annotation.UseMemberName
  * @see org.springframework.web.bind.annotation.RestController
  * @see example.app.geode.cache.client.model.Book
- * @see example.app.geode.cache.client.model.ISBN
  * @see example.app.geode.cache.client.repo.BookRepository
  * @since 1.0.0
  */
 @SpringBootApplication
-@EnableClusterConfiguration
+@EnableClusterConfiguration()
 @EnableEntityDefinedRegions(basePackageClasses = Book.class)
 @UseMemberName("BookExampleClientApplication")
-@SuppressWarnings("unused")
 public class BootExampleApplication {
 
   public static void main(String[] args) {
@@ -70,12 +69,11 @@ public class BootExampleApplication {
 
     return args -> {
 
-      ISBN isbn = ISBN.of("978-1449374648");
-      Book cloudNativeJava = Book.newBook(isbn, "Cloud Native Java");
+      Book cloudNativeJava = Book.newBook("321", "Foo");
 
       assertThat(cloudNativeJava).isNotNull();
-      assertThat(cloudNativeJava.getIsbn()).isEqualTo(isbn);
-      assertThat(cloudNativeJava.getTitle()).isEqualTo("Cloud Native Java");
+      assertThat(cloudNativeJava.getIsbn()).isEqualTo("321");
+      assertThat(cloudNativeJava.getTitle()).isEqualTo("Foo");
 
       cloudNativeJava = bookRepository.save(cloudNativeJava);
 

@@ -45,10 +45,7 @@ import org.springframework.data.gemfire.config.annotation.EnablePdx;
  * @since 1.0.0
  */
 @SpringBootApplication
-@CacheServerApplication(name = "BookExampleServerApplication", locators = "localhost[10334]")
-//@PeerCacheApplication(name = "BookExampleServerApplication", locators = "localhost[10334]")
-@EnablePdx(readSerialized = true)
-@SuppressWarnings("unused")
+@CacheServerApplication(name = "server1", locators = "localhost[10334]")
 public class GeodeServerApplication {
 
   public static void main(String[] args) {

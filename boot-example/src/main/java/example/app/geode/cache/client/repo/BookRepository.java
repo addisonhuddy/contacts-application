@@ -19,7 +19,6 @@ package example.app.geode.cache.client.repo;
 import org.springframework.data.repository.CrudRepository;
 
 import example.app.geode.cache.client.model.Book;
-import example.app.geode.cache.client.model.ISBN;
 
 /**
  * The BookRepository class...
@@ -27,7 +26,7 @@ import example.app.geode.cache.client.model.ISBN;
  * @author John Blum
  * @since 1.0.0
  */
-public interface BookRepository extends CrudRepository<Book, ISBN> {
+public interface BookRepository extends CrudRepository<Book, String> {
 
   Book findByTitle(String title);
 

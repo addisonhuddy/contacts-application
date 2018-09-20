@@ -1,0 +1,12 @@
+
+[info 2018/09/15 14:20:14.894 PDT <main> tid=0x1] Log opened with new distributed system connection.  View[10.54.10.6(server1:10839)<ec><v0>:1024|0] members: [10.54.10.6(server1:10839)<ec><v0>:1024{lead}]
+
+[info 2018/09/15 14:21:09.874 PDT <DM-MemberEventInvoker> tid=0x19] A new member joined: 10.54.10.6(server2:13487)<v1>:1025.  View[10.54.10.6(server1:10839)<ec><v0>:1024|1] members: [10.54.10.6(server1:10839)<ec><v0>:1024{lead}, 10.54.10.6(server2:13487)<v1>:1025]
+
+[info 2018/09/15 14:21:11.434 PDT <Cache Server Load Polling Thread> tid=0x47] server count: 1 connected client count: 0 client subscription queue count: 0
+  current servers : 10.54.10.6(server1:10839)<ec><v0>:1024 
+
+[info 2018/09/15 14:48:26.335 PDT <main> tid=0x1] Log opened with new distributed system connection.  View[10.54.10.6(server1:28977)<ec><v0>:1024|0] members: [10.54.10.6(server1:28977)<ec><v0>:1024{lead}]
+
+[info 2018/09/15 14:49:23.378 PDT <Cache Server Load Polling Thread> tid=0x49] server count: 1 connected client count: 0 client subscription queue count: 0
+  current servers : 10.54.10.6(server1:28977)<ec><v0>:1024 

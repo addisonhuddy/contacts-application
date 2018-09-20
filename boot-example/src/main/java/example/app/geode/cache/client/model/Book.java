@@ -41,7 +41,7 @@ import lombok.RequiredArgsConstructor;
 public class Book implements Serializable {
 
   @Id @NonNull
-  private final ISBN isbn;
+  private final String isbn;
 
   @NonNull
   private final String title;
